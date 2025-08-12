@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="UserNotFoundException" xml:space="preserve">
+        <value>User not found!</value>
+    </data>
+    <data name="InvalidPasswordException" xml:space="preserve">
+        <value>Password is invalid!</value>
+    </data>
+    <data name="DuplicateUserException" xml:space="preserve">
+        <value>We have a user with this information!</value>
+    </data>
+    <data name="PasswordMismatchException" xml:space="preserve">
+        <value>Password does not match!</value>
+    </data>
+    <data name="RoleNotFoundException" xml:space="preserve">
+        <value>We do not have this role!</value>
+    </data>
+    <data name="InvalidEmailFormatException" xml:space="preserve">
+        <value>Invalid email format!</value>
+    </data>
+    <data name="InvalidPhoneNumberFormatException" xml:space="preserve">
+        <value>Invalid phone number format!</value>
+    </data>
+    <data name="InvalidPasswordFormatException" xml:space="preserve">
+        <value>Password format is invalid!</value>
+    </data>
+    <data name="AdminExistenceException" xml:space="preserve">
+        <value>There is already an admin!</value>
+    </data>
+    <data name="TokenNotFoundInCookieException" xml:space="preserve">
+        <value>Token not found in cookies!</value>
+    </data>
+    <data name="TokenExpiredException" xml:space="preserve">
+        <value>Token expired!</value>
+    </data>
+    <data name="FileExistenceException" xml:space="preserve">
+        <value>We already have this file!</value>
+    </data>
+    <data name="CategoryResultNotFoundException" xml:space="preserve">
+        <value>Category does not exist in our system!</value>
+    </data>
+    <data name="NodeNotFoundException" xml:space="preserve">
+        <value>Node was not found!</value>
+    </data>
+    <data name="NoFileUploadedException" xml:space="preserve">
+        <value>No file uploaded!</value>
+    </data>
+    <data name="EdgeNotFoundException" xml:space="preserve">
+        <value>Edge not found!</value>
+    </data>
+    <data name="DuplicateRoleException" xml:space="preserve">
+        <value>We already have this role in the database!</value>
+    </data>
+    <data name="CategoryAlreadyExist" xml:space="preserve">
+        <value>This category already exists!</value>
+    </data>
+    <data name="GuidNotCorrectFormatException" xml:space="preserve">
+        <value>GUID format is invalid!</value>
+    </data>
+    <data name="NodeNotFoundInEntityEdgeException" xml:space="preserve">
+        <value>Nodes with IDs {0} were not found!</value>
+    </data>
+    <data name="HeaderIdNotFoundInNodeFile" xml:space="preserve">
+    	<value>Header(s) not found in the uploaded file: {0}</value>
+    </data>
+    <data name="NodeNotAccessibleForUserException" xml:space="preserve">
+    	<value>Header(s) Node is not accessible for this user! {0}</value>
+    </data>
+    <data name="PasswordHasherInputNull" xml:space="preserve">
+        <value>password is null!</value>
+    </data>
+    <data name="TokenIsInvalidException" xml:space="preserve">
+        <value>Token Invalid ! </value>
+    </data>
+    <data name="FailedOpetaionException" xml:space="preserve">
+        <value>Failed Operation ! </value>
+    </data>
+    <data name="AdminProtectedException" xml:space="preserve">
+        <value>You can not delete or modify admin information !</value>
+    </data>
+    <data name="FileProcessingException" xml:space="preserve">
+        <value>failed to processing file ! </value>
+    </data>
+    <data name="NodeHasNotEdgesException" xml:space="preserve">
+        <value>no edges found for this node ! </value>
+    </data>
+    
+</root>
