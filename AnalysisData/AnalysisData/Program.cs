@@ -52,7 +52,21 @@ builder.Services.AddCors(options =>
     options.AddPolicy("MyCorsPolicy", policy =>
     {
         policy
-            .WithOrigins("http://localhost:4200") // Frontend URL
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyCorsPolicy", policy =>
+    {
+        policy
+            .WithOrigins(
+                "http://localhost:4200",
+                "http://87.236.166.191:4200"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
+
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
