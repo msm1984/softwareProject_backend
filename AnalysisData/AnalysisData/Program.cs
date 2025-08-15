@@ -8,15 +8,16 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Configuration.AddJsonFile("appsettings.json").AddEnvironmentVariables();
 var connectionString = builder.Configuration["CONNECTION_STRING"];
 
+// JWT Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
+})
+.AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -30,22 +31,41 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
+
+// Services & Repositories
 builder.Services.AddScoped<Authorization>();
 builder.Services.AddRepositories();
 builder.Services.AddServices();
+
+// Controllers & Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpContextAccessor();
 
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyCorsPolicy", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:4200") // Frontend URL
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
 
 var authorization = new Authorization();
 authorization.ConfigureAuthorizationPolicies(builder.Services);
 
 var app = builder.Build();
 
+// Middleware
+app.UseCors("MyCorsPolicy");
 
 if (app.Environment.IsDevelopment())
 {
@@ -57,11 +77,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseRouting();
-// app.UseCors("AllowAngularApp");
 app.UseMiddleware<JwtMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
-app.UseCors(x => x.AllowCredentials().AllowAnyHeader().AllowAnyMethod()
-    .SetIsOriginAllowed(x => true));
 app.Run();
