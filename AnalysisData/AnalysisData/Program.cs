@@ -27,7 +27,9 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])
+        )
     };
 });
 
@@ -52,11 +54,6 @@ builder.Services.AddCors(options =>
     options.AddPolicy("MyCorsPolicy", policy =>
     {
         policy
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("MyCorsPolicy", policy =>
-    {
-        policy
             .WithOrigins(
                 "http://localhost:4200",
                 "http://87.236.166.191:4200"
@@ -67,12 +64,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
-    });
-});
-
+// Authorization Policies
 var authorization = new Authorization();
 authorization.ConfigureAuthorizationPolicies(builder.Services);
 
