@@ -16,7 +16,7 @@ public class CookieService : ICookieService
         var options = new CookieOptions
         {
             HttpOnly = true,
-            Secure = true,
+            Secure = false,
             SameSite = SameSiteMode.Strict
         };
 
